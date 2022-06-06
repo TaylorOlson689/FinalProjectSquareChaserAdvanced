@@ -189,7 +189,7 @@ namespace FinalProjectSquareChaserAdvanced
                 player2.X += player2Speed;
             }
 
-            // create code that checks if player 1 collides with ball1 and if it does
+            // create code that checks if player 1 collides with square and if it does
             // move ball1 to a different location.
 
             for (int i = 0; i < squares.Count(); i++)
@@ -206,6 +206,7 @@ namespace FinalProjectSquareChaserAdvanced
                     else
                     {
                         player1Score -= 1;
+                        p1scoreLabel.Text = $"P2: {player2Score}";
                     }
                 }
             }
@@ -219,9 +220,7 @@ namespace FinalProjectSquareChaserAdvanced
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
 
-                        // get a new x and y value and reset the position of the green square at i
-                        
-
+                        // get a new x and y value and reset the position of the green square at i  
                     }
                     else
                     {
@@ -242,7 +241,6 @@ namespace FinalProjectSquareChaserAdvanced
                 winLabel.Visible = true;
                 winLabel.Text = "Player 2 Wins!!";
             }
-
             Refresh();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -252,8 +250,8 @@ namespace FinalProjectSquareChaserAdvanced
                 titleLabel.Text = "Welcome to Square Chaser Advanced.";
                 subtitleLabel.Text = "Press Space Bar to Start!";
                 timeLabel.Text = $"";
-                p1scoreLabel.Text = $"P1: 0";
-                p2scoreLabel.Text = $"P2: 0 ";
+                p1scoreLabel.Text = $"";
+                p2scoreLabel.Text = $"";
             }
             else if (gameState == "running")
             {
@@ -297,11 +295,6 @@ namespace FinalProjectSquareChaserAdvanced
                     winLabel.Text = "Player 2 Wins!!";
                 }
             }
-            
-            // e.Graphics.FillRectangle(blueBrush, player1);
-            // e.Graphics.FillRectangle(yellowBrush, player2);
-            ////draw squares 
-
         }
     }
 }
