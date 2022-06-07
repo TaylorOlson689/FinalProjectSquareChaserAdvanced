@@ -43,7 +43,10 @@ namespace FinalProjectSquareChaserAdvanced
 
         int groundHeight = 50;
         string gameState = "waiting";
-        
+
+        int redDotCounter = 0;
+        int greenDotCounter = 0;
+
         public void GameInitialize()
         {
             titleLabel.Text = "";
@@ -220,7 +223,7 @@ namespace FinalProjectSquareChaserAdvanced
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
 
-                        // get a new x and y value and reset the position of the green square at i  
+                        // get a new x and y value and reset the position of the green square at i
                     }
                     else
                     {
@@ -228,7 +231,39 @@ namespace FinalProjectSquareChaserAdvanced
                     }
                 }
             }
-            
+
+            // check if it is time to add a new dot
+
+            // add 1 to dotCounter
+            // if the dotCounter >= 50
+            // add another rectangle to squares
+            // add a colour to squareColors
+
+            redDotCounter = 0 + 1000;
+
+            if (redDotCounter >= 1000)
+            {
+                int x = randGen.Next(0, this.Width);
+                int y = randGen.Next(0, this.Width);
+
+                Rectangle newRec = new Rectangle(x, y, 10, 10);
+                squares.Add(newRec);
+                squareColours.Add("red");
+            }
+
+            greenDotCounter = 0 + 1000;
+
+            if (greenDotCounter >= 1000)
+            {
+                int x = randGen.Next(0, this.Width);
+                int y = randGen.Next(0, this.Width);
+
+                Rectangle newRec = new Rectangle(x, y, 10, 10);
+                squares.Add(newRec);
+                squareColours.Add("green");
+            }
+
+
             if (player1Score == 3)
             {
                 gameTimer.Enabled = false;
