@@ -51,7 +51,7 @@ namespace FinalProjectSquareChaserAdvanced
             subtitleLabel.Text = "";
             gameTimer.Enabled = true;
             gameState = "running";
-            time = 750;
+            time = 1500;
 
             squares.Clear();
             squareColours.Clear();
