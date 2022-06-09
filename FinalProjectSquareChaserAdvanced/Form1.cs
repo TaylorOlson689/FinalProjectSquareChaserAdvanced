@@ -16,7 +16,7 @@ namespace FinalProjectSquareChaserAdvanced
         List<int> squareSpeeds = new List<int>();
         List<string> squareColours = new List<string>();
 
-        int time = 500;
+        int time = 0;
 
         bool wDown = false;
         bool sDown = false;
@@ -44,8 +44,6 @@ namespace FinalProjectSquareChaserAdvanced
         int groundHeight = 50;
         string gameState = "waiting";
 
-        int redDotCounter = 0;
-        int greenDotCounter = 0;
 
         public void GameInitialize()
         {
@@ -53,7 +51,7 @@ namespace FinalProjectSquareChaserAdvanced
             subtitleLabel.Text = "";
             gameTimer.Enabled = true;
             gameState = "running";
-            time = 60000;
+            time = 750;
 
             squares.Clear();
             squareColours.Clear();
@@ -63,20 +61,6 @@ namespace FinalProjectSquareChaserAdvanced
             player1.Y = this.Height - groundHeight - player1.Height;
             player2.X = this.Width / 2 - player2.Width / 2;
             player2.Y = this.Height - groundHeight - player2.Height;
-
-            int x = randGen.Next(0, this.Width);
-            int y = randGen.Next(0, this.Width);
-
-            Rectangle newRec = new Rectangle(x, y, 10, 10);
-            squares.Add(newRec);
-            squareColours.Add("red");
-
-            x = randGen.Next(0, this.Width);
-            y = randGen.Next(0, this.Width);
-
-            newRec = new Rectangle(x, y, 10, 10);
-            squares.Add(newRec);
-            squareColours.Add("green");
         }
         public Form1()
         {
@@ -156,6 +140,9 @@ namespace FinalProjectSquareChaserAdvanced
         }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            gameTimer.Enabled = true;
+            time--;
+            timeLabel.Text = $"Time: {time}";
             //move player 1
             if (wDown == true && player1.Y > 0)
             {
@@ -197,13 +184,13 @@ namespace FinalProjectSquareChaserAdvanced
 
             for (int i = 0; i < squares.Count(); i++)
             {
-                if (player1.IntersectsWith(squares[i])) //green guy
+                if (player1.IntersectsWith(squares[i])) //blue guy
                 {
                     if (squareColours[i] == "green")
                     {
                         player1Score += 1;
                         p1scoreLabel.Text = $"P1: {player1Score}";
-                        // get code to delete/remove the square that was hit by player 
+                        // get code to delete/remove the square that was hit by player
 
                     }
                     else
@@ -216,7 +203,7 @@ namespace FinalProjectSquareChaserAdvanced
            
             for (int i = 0; i < squares.Count(); i++)
             {
-                if (player2.IntersectsWith(squares[i])) //red ball
+                if (player2.IntersectsWith(squares[i])) //yellow guy
                 {
                     if (squareColours[i] == "green")
                     {
@@ -233,14 +220,9 @@ namespace FinalProjectSquareChaserAdvanced
 
             // check if it is time to add a new dot
 
-            // add 1 to dotCounter
-            // if the dotCounter >= 50
-            // add another rectangle to squares
-            // add a colour to squareColors
+            int randValue = randGen.Next(0, 101);
 
-            redDotCounter = time + 1000;
-
-            if (redDotCounter >= 1000)
+            if (randValue < 3)
             {
                 int x = randGen.Next(0, this.Width);
                 int y = randGen.Next(0, this.Width);
@@ -250,9 +232,7 @@ namespace FinalProjectSquareChaserAdvanced
                 squareColours.Add("red");
             }
 
-            greenDotCounter = time + 1000;
-
-            if (greenDotCounter >= 1000)
+            if (randValue < 3)
             {
                 int x = randGen.Next(0, this.Width);
                 int y = randGen.Next(0, this.Width);
@@ -275,10 +255,11 @@ namespace FinalProjectSquareChaserAdvanced
             }
             else if (gameState == "running")
             {
-                timeLabel.Text = $"Time: {time}";
                 p1scoreLabel.Text = $"P1: {player1Score}";
                 p2scoreLabel.Text = $"P2: {player2Score}";
-
+                titleLabel.Text = "";
+                subtitleLabel.Text = "";
+                winLabel.Text = "";
                 e.Graphics.FillRectangle(blueBrush, player1);
                 e.Graphics.FillRectangle(yellowBrush, player2);
 
@@ -292,12 +273,18 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         e.Graphics.FillEllipse(greenBrush, squares[i]);
                     }
+
+                    if (time == 0)
+                    {
+                        gameState = "over";
+                    }
                 }
             }
             else if (gameState == "over")
             {
-                timeLabel.Text = "";
+                timeLabel.Text = "Time: 0";
                 p1scoreLabel.Text = "";
+                p2scoreLabel.Text = "";
                 titleLabel.Text = "GAME OVER";
                 subtitleLabel.Text += "\nPress Space Bar to Play Again or Escape to Exit";
 
