@@ -98,6 +98,8 @@ namespace FinalProjectSquareChaserAdvanced
                     if (gameState == "waiting" || gameState == "over")
                     {
                         GameInitialize();
+                        player1Score = 0;
+                        player2Score = 0;
                     }
                     break;
                 case Keys.Escape:
@@ -190,8 +192,7 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player1Score += 1;
                         p1scoreLabel.Text = $"P1: {player1Score}";
-                        // get code to delete/remove the square that was hit by player
-
+                        // get code to delete/remove or relocate the square that was hit by player
                     }
                     else
                     {
@@ -209,7 +210,7 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
-                        //get code to delete/remove the square that was hit by player 
+                        //get code to delete/remove or relocate the square that was hit by player 
                     }
                     else
                     {
