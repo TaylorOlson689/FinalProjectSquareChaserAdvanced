@@ -44,6 +44,8 @@ namespace FinalProjectSquareChaserAdvanced
         int groundHeight = 50;
         string gameState = "waiting";
 
+        SoundPlayer cheerSound = new SoundPlayer(Properties.Resources.Cheer);
+        SoundPlayer booSound = new SoundPlayer(Properties.Resources.Boo);
 
         public void GameInitialize()
         {
@@ -192,12 +194,14 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player1Score += 1;
                         p1scoreLabel.Text = $"P1: {player1Score}";
+                        cheerSound.Play();
                         // get code to delete/remove or relocate the square that was hit by player
                     }
                     else
                     {
                         player1Score -= 1;
                         p1scoreLabel.Text = $"P2: {player2Score}";
+                        booSound.Play();
                     }
                 }
             }
@@ -210,11 +214,14 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
+                        cheerSound.Play();
                         //get code to delete/remove or relocate the square that was hit by player 
                     }
                     else
                     {
-                        player2Score -= 1;
+                        player1Score -= 1;
+                        p1scoreLabel.Text = $"P2: {player2Score}";
+                        booSound.Play();
                     }
                 }
             }
@@ -288,6 +295,7 @@ namespace FinalProjectSquareChaserAdvanced
                 p2scoreLabel.Text = "";
                 titleLabel.Text = "GAME OVER";
                 subtitleLabel.Text += "\nPress Space Bar to Play Again or Escape to Exit";
+                
 
                 if (player1Score > player2Score)
                 {
