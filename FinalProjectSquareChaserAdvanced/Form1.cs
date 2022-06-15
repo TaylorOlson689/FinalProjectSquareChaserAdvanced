@@ -39,6 +39,7 @@ namespace FinalProjectSquareChaserAdvanced
         SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush greenBrush = new SolidBrush(Color.Green);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
+        SolidBrush transparentBrush = new SolidBrush(Color.Transparent);
         Random randGen = new Random();
 
         int groundHeight = 50;
@@ -184,7 +185,7 @@ namespace FinalProjectSquareChaserAdvanced
             }
 
             // create code that checks if player 1 collides with square and if it does
-            // move ball1 to a different location.
+            // move square to a different location or remove.
 
             for (int i = 0; i < squares.Count(); i++)
             {
@@ -195,17 +196,18 @@ namespace FinalProjectSquareChaserAdvanced
                         player1Score += 1;
                         p1scoreLabel.Text = $"P1: {player1Score}";
                         cheerSound.Play();
-                        // get code to delete/remove or relocate the square that was hit by player
+                        squares.Remove(squares[i]);
                     }
-                    else
+                    else if (squareColours[i] == "red")
                     {
                         player1Score -= 1;
                         p1scoreLabel.Text = $"P2: {player2Score}";
                         booSound.Play();
+                        squares.Remove(squares[i]);
                     }
                 }
             }
-           
+       
             for (int i = 0; i < squares.Count(); i++)
             {
                 if (player2.IntersectsWith(squares[i])) //yellow guy
@@ -214,14 +216,15 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
-                        cheerSound.Play();
-                        //get code to delete/remove or relocate the square that was hit by player 
+                        cheerSound.Play(); 
+                        squares.Remove(squares[i]);
                     }
                     else
                     {
                         player1Score -= 1;
                         p1scoreLabel.Text = $"P2: {player2Score}";
                         booSound.Play();
+                        squares.Remove(squares[i]);
                     }
                 }
             }
