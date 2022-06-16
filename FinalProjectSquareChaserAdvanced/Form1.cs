@@ -47,6 +47,8 @@ namespace FinalProjectSquareChaserAdvanced
 
         SoundPlayer cheerSound = new SoundPlayer(Properties.Resources.Cheer);
         SoundPlayer booSound = new SoundPlayer(Properties.Resources.Boo);
+        SoundPlayer p1WinsSound = new SoundPlayer(Properties.Resources.p1Wins);
+        SoundPlayer p2WinsSound = new SoundPlayer(Properties.Resources.p2Wins);
 
         public void GameInitialize()
         {
@@ -297,20 +299,24 @@ namespace FinalProjectSquareChaserAdvanced
                 p1scoreLabel.Text = "";
                 p2scoreLabel.Text = "";
                 titleLabel.Text = "GAME OVER";
-                subtitleLabel.Text += "\nPress Space Bar to Play Again or Escape to Exit";
-                
+                subtitleLabel.Text = "\nPress Space Bar to Play Again or Escape to Exit";
+                gameTimer.Enabled = false;
+                winLabel.Visible = true;
+
 
                 if (player1Score > player2Score)
                 {
-                    gameTimer.Enabled = false;
-                    winLabel.Visible = true;
-                    winLabel.Text = "Player 1 Wins!!";
+                    winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";
+                    p1WinsSound.Play();
+                }
+                else if (player2Score > player1Score)
+                {
+                    winLabel.Text = $"Player  2  Wins!! The final score was {player2Score} to {player1Score}.";
+                    p2WinsSound.Play();
                 }
                 else
                 {
-                    gameTimer.Enabled = false;
-                    winLabel.Visible = true;
-                    winLabel.Text = "Player 2 Wins!!";
+                    winLabel.Text = "It's a tie!";
                 }
             }
         }

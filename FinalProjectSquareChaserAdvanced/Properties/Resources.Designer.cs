@@ -77,5 +77,23 @@ namespace FinalProjectSquareChaserAdvanced.Properties {
                 return ResourceManager.GetStream("Cheer", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream p1Wins {
+            get {
+                return ResourceManager.GetStream("p1Wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream p2Wins {
+            get {
+                return ResourceManager.GetStream("p2Wins", resourceCulture);
+            }
+        }
     }
 }
