@@ -106,6 +106,9 @@ namespace FinalProjectSquareChaserAdvanced
                         GameInitialize();
                         player1Score = 0;
                         player2Score = 0;
+                        p1WinsSound.Stop();
+                        p2WinsSound.Stop();
+                        tieSound.Stop();
                     }
                     break;
                 case Keys.Escape:
