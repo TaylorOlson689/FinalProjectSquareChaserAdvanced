@@ -92,5 +92,17 @@
   <ItemGroup>
     <None Include="Resources\p2wins.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\It%27s a tie.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p1wins %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p2wins %281%29.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\p1wins %282%29.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

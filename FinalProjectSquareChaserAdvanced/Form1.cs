@@ -49,6 +49,7 @@ namespace FinalProjectSquareChaserAdvanced
         SoundPlayer booSound = new SoundPlayer(Properties.Resources.Boo);
         SoundPlayer p1WinsSound = new SoundPlayer(Properties.Resources.p1Wins);
         SoundPlayer p2WinsSound = new SoundPlayer(Properties.Resources.p2Wins);
+        SoundPlayer tieSound = new SoundPlayer(Properties.Resources.tie);
 
         public void GameInitialize()
         {
@@ -274,8 +275,8 @@ namespace FinalProjectSquareChaserAdvanced
                 subtitleLabel.Text = "";
                 winLabel.Text = "";
                 e.Graphics.FillRectangle(blueBrush, player1);
-                e.Graphics.FillRectangle(yellowBrush, player2);
-
+                e.Graphics.FillRectangle(yellowBrush, player2); 
+                
                 for (int i = 0; i < squares.Count(); i++)
                 {
                     if (squareColours[i] == "red")
@@ -317,6 +318,7 @@ namespace FinalProjectSquareChaserAdvanced
                 else
                 {
                     winLabel.Text = "It's a tie!";
+                    tieSound.Play();
                 }
             }
         }
