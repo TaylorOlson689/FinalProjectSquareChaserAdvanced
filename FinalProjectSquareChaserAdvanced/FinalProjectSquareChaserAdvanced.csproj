@@ -104,5 +104,8 @@
   <ItemGroup>
     <None Include="Resources\p1wins %282%29.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Welcome.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -50,6 +50,7 @@ namespace FinalProjectSquareChaserAdvanced
         SoundPlayer p1WinsSound = new SoundPlayer(Properties.Resources.p1Wins);
         SoundPlayer p2WinsSound = new SoundPlayer(Properties.Resources.p2Wins);
         SoundPlayer tieSound = new SoundPlayer(Properties.Resources.tie);
+        SoundPlayer welcomeSound = new SoundPlayer(Properties.Resources.Welcome);
 
         public void GameInitialize()
         {
@@ -306,8 +307,7 @@ namespace FinalProjectSquareChaserAdvanced
                 subtitleLabel.Text = "\nPress Space Bar to Play Again or Escape to Exit";
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
-
-
+                
                 if (player1Score > player2Score)
                 {
                     winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";
