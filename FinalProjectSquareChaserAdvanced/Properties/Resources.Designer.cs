@@ -104,14 +104,5 @@ namespace FinalProjectSquareChaserAdvanced.Properties {
                 return ResourceManager.GetStream("tie", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Welcome {
-            get {
-                return ResourceManager.GetStream("Welcome", resourceCulture);
-            }
-        }
     }
 }

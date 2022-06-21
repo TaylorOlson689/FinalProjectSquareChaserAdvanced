@@ -50,7 +50,6 @@ namespace FinalProjectSquareChaserAdvanced
         SoundPlayer p1WinsSound = new SoundPlayer(Properties.Resources.p1Wins);
         SoundPlayer p2WinsSound = new SoundPlayer(Properties.Resources.p2Wins);
         SoundPlayer tieSound = new SoundPlayer(Properties.Resources.tie);
-       
 
         public void GameInitialize()
         {
@@ -266,7 +265,7 @@ namespace FinalProjectSquareChaserAdvanced
             if (gameState == "waiting")
             {
                 titleLabel.Text = "Welcome to Square Chaser Advanced.";
-                subtitleLabel.Text = "Press Space Bar to Start!";
+                subtitleLabel.Text = "In this two player game, you are in an advanced quest to hit as manny squares as possible. The green squares add points and the red squares lose points. As the two players hit the squares, the squares might change colour. Press Space Bar to Start!";
                 timeLabel.Text = $"";
                 p1scoreLabel.Text = $"";
                 p2scoreLabel.Text = $"";

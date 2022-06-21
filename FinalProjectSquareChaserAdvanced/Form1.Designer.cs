@@ -97,7 +97,7 @@
             this.subtitleLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.subtitleLabel.Location = new System.Drawing.Point(159, 183);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(269, 23);
+            this.subtitleLabel.Size = new System.Drawing.Size(348, 85);
             this.subtitleLabel.TabIndex = 5;
             // 
             // Form1
