@@ -264,8 +264,8 @@ namespace FinalProjectSquareChaserAdvanced
         {
             if (gameState == "waiting")
             {
-                titleLabel.Text = "Welcome to Square Chaser Advanced.";
-                subtitleLabel.Text = "In this two player game, you are in an advanced quest to hit as manny squares as possible. The green squares add points and the red squares lose points. As the two players hit the squares, the squares might change colour. Press Space Bar to Start!";
+                titleLabel.Text = "Welcome to Square Chaser 2023.";
+                subtitleLabel.Text = "In this two player game, you are in an advanced quest to hit as many squares as possible and gain points. The green squares add points and the red squares lose points. As the two players hit the squares, the squares might change colour. Press Space Bar to Start!";
                 timeLabel.Text = $"";
                 p1scoreLabel.Text = $"";
                 p2scoreLabel.Text = $"";
@@ -309,18 +309,15 @@ namespace FinalProjectSquareChaserAdvanced
                 
                 if (player1Score > player2Score)
                 {
-                    winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";
-                    p1WinsSound.Play();
+                    winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";    
                 }
                 else if (player2Score > player1Score)
                 {
                     winLabel.Text = $"Player  2  Wins!! The final score was {player2Score} to {player1Score}.";
-                    p2WinsSound.Play();
                 }
                 else
                 {
                     winLabel.Text = "It's a tie!";
-                    tieSound.Play();
                 }
             }
         }
