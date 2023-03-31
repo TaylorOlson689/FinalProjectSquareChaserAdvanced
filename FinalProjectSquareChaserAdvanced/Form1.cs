@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Media;
+using System.Windows.Forms;
 namespace FinalProjectSquareChaserAdvanced
-{ 
+{
     public partial class Form1 : Form
     {
         List<Rectangle> squares = new List<Rectangle>();
@@ -213,7 +209,7 @@ namespace FinalProjectSquareChaserAdvanced
                     }
                 }
             }
-       
+
             for (int i = 0; i < squares.Count(); i++)
             {
                 if (player2.IntersectsWith(squares[i])) //yellow guy
@@ -222,7 +218,7 @@ namespace FinalProjectSquareChaserAdvanced
                     {
                         player2Score += 1;
                         p1scoreLabel.Text = $"P1: {player2Score}";
-                        cheerSound.Play(); 
+                        cheerSound.Play();
                         squares.Remove(squares[i]);
                     }
                     else
@@ -278,8 +274,8 @@ namespace FinalProjectSquareChaserAdvanced
                 subtitleLabel.Text = "";
                 winLabel.Text = "";
                 e.Graphics.FillRectangle(blueBrush, player1);
-                e.Graphics.FillRectangle(yellowBrush, player2); 
-                
+                e.Graphics.FillRectangle(yellowBrush, player2);
+
                 for (int i = 0; i < squares.Count(); i++)
                 {
                     if (squareColours[i] == "red")
@@ -306,10 +302,10 @@ namespace FinalProjectSquareChaserAdvanced
                 subtitleLabel.Text = "\nPress Space Bar to Play Again or Escape to Exit";
                 gameTimer.Enabled = false;
                 winLabel.Visible = true;
-                
+
                 if (player1Score > player2Score)
                 {
-                    winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";    
+                    winLabel.Text = $"Player  1  Wins!! The final score was {player1Score} to {player2Score}.";
                 }
                 else if (player2Score > player1Score)
                 {
